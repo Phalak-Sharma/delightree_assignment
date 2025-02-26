@@ -1,0 +1,146 @@
+ query {
+   getCustomerSpending(customerId:"7895595e-7f25-47fe-a6f8-94b31bfab736") {
+     customerId
+     totalSpent
+     averageOrderValue
+     lastOrderDate
+   }
+}
+
+query {
+  getCustomerSpending(customerId:"a274321b-304d-49c8-ad20-3f7c3b3073fc") {
+    totalSpent
+    averageOrderValue
+  }
+}
+
+query {
+  getCustomerSpending(customerId:"45f2def4-1923-4f48-8870-924b2955d39e") {
+   lastOrderDate
+  }
+}
+
+ query {
+   getTopSellingProducts(limit: 5) {
+     productId
+     name
+     totalSold
+   }
+ }
+
+ query {
+  getTopSellingProducts(limit:10) {
+    name
+    totalSold
+  }
+}
+
+ query {
+   getSalesAnalytics(
+     startDate: "2024-01-01T00:00:00Z"
+     endDate: "2024-12-31T23:59:59Z"
+   ) {
+     totalRevenue
+     completedOrders
+     categoryBreakdown {
+       category
+       revenue
+     }
+   }
+ }
+
+ query {
+  getSalesAnalytics(
+    startDate: "2024-01-01T00:00:00Z"
+    endDate: "2025-12-31T23:59:59Z"
+  ) {
+    totalRevenue
+    completedOrders
+    categoryBreakdown {
+      category
+      revenue
+    }
+  }
+}
+
+query {
+  getSalesAnalytics(
+    startDate: "2025-01-01T00:00:00Z"
+    endDate: "2025-12-31T23:59:59Z"
+  ) {
+    totalRevenue
+    completedOrders
+    
+  }
+}
+
+query {
+  getSalesAnalytics(
+    startDate: "2024-01-01T00:00:00Z"
+    endDate: "2025-12-31T23:59:59Z"
+  ) {
+    
+    categoryBreakdown {
+      category
+      revenue
+    }
+  }
+}
+ 
+ query {
+  getSalesAnalytics(
+    startDate: "2021-01-01T00:00:00Z"
+    endDate: "2021-12-31T23:59:59Z"
+  ) {
+    totalRevenue
+    completedOrders
+    categoryBreakdown {
+      category
+      revenue
+    }
+  }
+}
+
+ mutation {
+  placeOrder(
+    customerId: "customer123"
+    products: [
+      { productName: "Wear Money", quantity: 2 },
+      { productName: "Wish Around", quantity: 1 }
+    ]
+  ) {
+    orderId
+    customerId
+    products {
+      productId
+      productName 
+      quantity
+      price
+    }
+    totalAmount
+    orderDate
+    status
+  }
+}
+
+mutation {
+  placeOrder(
+    customerId: "customer123"
+    products: [
+      { productName: "Wear", quantity: 2 },
+      { productName: "Wish Around", quantity: 1 }
+    ]
+  ) {
+    orderId
+    customerId
+    products {
+      productId
+      productName    
+      quantity
+      price
+    }
+    totalAmount
+    orderDate
+    status
+  }
+}
